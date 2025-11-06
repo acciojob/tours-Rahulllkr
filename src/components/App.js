@@ -62,14 +62,14 @@ const App = () => {
               const isExpanded = expand[item.id]
               const text = isExpanded ? item.info : item.info.substring(0,200) + "...";
               return <div key={index}> 
-                <p>{item.name}</p>
-                <div>
-                  <p>{text}</p>
-                  <button onClick={() => handleToggle(item.id)}>{isExpanded ? "See less" : "Show more"}</button>
-                  </div>
-                <img src={item.image} alt={item.title} />
-                <p>{item.price}</p>
-                <button onClick={() => handleDelete(item.id)}>Delete</button>
+              <img src={item.image} alt={item.name} />
+              <h2>{item.name}</h2>
+              <h4>Price: ${item.price}</h4>
+              <p id={`tour-item-para-${item.id}`}>
+                {text}
+                <button>{isExpanded ? "See less" : "See more"}</button>
+              </p>
+              <button id={`delete-btn-${item.id}`} onClick={() => deleteTour(item.id)}>Not interested</button>
               </div>
             })
           }
