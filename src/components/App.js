@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const tours = [
   {
@@ -39,6 +39,7 @@ const tours = [
 ]
 
 const App = () => {
+  const [description,setDescription] = useState(false)
     return(
       <main id="main">
         <div>
@@ -46,7 +47,10 @@ const App = () => {
             tours.map((item,index) => {
               return <div key={index}> 
                 <p>{item.name}</p>
-                <p>{item.description}</p>
+                <div>
+                  <p>{item.info}</p>
+                  <button>See more</button>
+                  </div>
                 <img src={item.image} alt={item.title} />
                 <p>{item.price}</p>
               </div>
