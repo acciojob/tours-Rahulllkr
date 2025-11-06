@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const tours = [
+const toursData = [
   {
     "id": "rec6d6T3q5EBIdCfD",
     "name": "Best of Paris in 7 Days Tour",
@@ -39,20 +39,37 @@ const tours = [
 ]
 
 const App = () => {
-  const [description,setDescription] = useState(false)
+  const [tours,setTours] = useState(toursData)
+  const [expand,setExpand] = useState({})
+  const handleDelete = (id) => {
+    const updatedData = tours.filter((item) => id !== item.id);
+    setTours(updatedData)
+  }
+  const handleToggle = (id) => {
+    setExpand((prev) => ({...prev,[id]:!prev[id]}))
+  }
+  if(tours.length === 0){
+    return <div>
+      <h1>No tours left</h1>
+      <button onClick={() => setTours(toursData)}>Refresh</button>
+    </div>
+  }
     return(
       <main id="main">
         <div>
           {
             tours.map((item,index) => {
+              const isExpanded = expand[item.id]
+              const text = isExpanded ? item.info : item.info.substring(0,200) + "...";
               return <div key={index}> 
                 <p>{item.name}</p>
                 <div>
-                  <p>{item.info}</p>
-                  <button>See more</button>
+                  <p>{text}</p>
+                  <button onClick={() => handleToggle(item.id)}>See more</button>
                   </div>
                 <img src={item.image} alt={item.title} />
                 <p>{item.price}</p>
+                <button onClick={() => handleDelete(item.id)}>Delete</button>
               </div>
             })
           }
