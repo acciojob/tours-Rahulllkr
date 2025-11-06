@@ -65,7 +65,7 @@ const App = () => {
                 <p>{item.name}</p>
                 <div>
                   <p>{text}</p>
-                  <button onClick={() => handleToggle(item.id)}>See more</button>
+                  <button onClick={() => handleToggle(item.id)}>{isExpanded ? "See less" : "Show more"}</button>
                   </div>
                 <img src={item.image} alt={item.title} />
                 <p>{item.price}</p>
