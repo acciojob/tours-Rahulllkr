@@ -41,7 +41,18 @@ const tours = [
 const App = () => {
     return(
       <main id="main">
-        <h1>Hello</h1>
+        <div>
+          {
+            tours.map((item,index) => {
+              return <div key={index}> 
+                <p>{item.name}</p>
+                <p>{item.description}</p>
+                <img src={item.image} alt={item.title} />
+                <p>{item.price}</p>
+              </div>
+            })
+          }
+        </div>
       </main>
     )
 }
