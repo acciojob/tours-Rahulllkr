@@ -41,7 +41,7 @@ const toursData = [
 const App = () => {
   const [tours,setTours] = useState(toursData)
   const [expand,setExpand] = useState({})
-  const handleDelete = (id) => {
+  const deleteTour = (id) => {
     const updatedData = tours.filter((item) => id !== item.id);
     setTours(updatedData)
   }
@@ -67,7 +67,7 @@ const App = () => {
               <h4>Price: ${item.price}</h4>
               <p id={`tour-item-para-${item.id}`}>
                 {text}
-                <button>{isExpanded ? "See less" : "See more"}</button>
+                <button onClick={() => setExpand(!expand)}>{isExpanded ? "See less" : "See more"}</button>
               </p>
               <button id={`delete-btn-${item.id}`} onClick={() => deleteTour(item.id)}>Not interested</button>
               </div>
