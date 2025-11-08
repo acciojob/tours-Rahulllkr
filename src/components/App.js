@@ -66,7 +66,7 @@ const App = () => {
               <h4>Price: ${item.price}</h4>
               <p id={`tour-item-para-${item.id}`}>
                 {expand[item.id] ? item.info : item.info.substring(0,200) + "..."}
-                <button id={`see-more-${item.id}`} onClick={() => handleToggle(item.id)}>{expand[item.id] ? "Show less" : "Show more"}</button>
+                <button id={`see-more-${item.id}`} onClick={() => handleToggle(item.id)}>{expand[item.id] ? "Show less" : "See more"}</button>
               </p>
               <button id={`delete-btn-${item.id}`} onClick={() => deleteTour(item.id)}>Not interested</button>
               </div>
