@@ -67,7 +67,7 @@ const App = () => {
               <h4>Price: ${item.price}</h4>
               <p id={`tour-item-para-${item.id}`}>
                 {text}
-                <button onClick={() => setExpand(!expand)}>{expand ? "See less" : "See more"}</button>
+                <button id={expand ? "see-more": "see-less"} onClick={() => setExpand(!expand)}>{expand ? "See less" : "See more"}</button>
               </p>
               <button id={`delete-btn-${item.id}`} onClick={() => deleteTour(item.id)}>Not interested</button>
               </div>
