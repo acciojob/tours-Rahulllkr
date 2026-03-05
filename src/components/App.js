@@ -55,7 +55,7 @@ const App = () => {
     </div>
   }
     return(
-      <main id="main">
+      <main id="">
         <div>
           {
             tours.map((item,index) => {
